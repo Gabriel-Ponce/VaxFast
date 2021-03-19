@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "550717151224",
+    "project_id": "vaxfast-cf5ef",
+    "storage_bucket": "vaxfast-cf5ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550717151224:android:ca5ab90849820ccac0e80d",
+        "android_client_info": {
+          "package_name": "com.vaxfast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550717151224-4rher72a4f3sd9r3ru5bqg6lp0qbdeh5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMkYiYtHus9ZhZcHGyn1lUHphlxvvhLbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550717151224-4rher72a4f3sd9r3ru5bqg6lp0qbdeh5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
