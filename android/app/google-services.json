@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "550717151224-6oo6lfpdphpj1evousluf4e19smea0pk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vaxfast",
+            "certificate_hash": "d035411f6f0951ef62986293114a0a656ba62f6c"
+          }
+        },
+        {
           "client_id": "550717151224-4rher72a4f3sd9r3ru5bqg6lp0qbdeh5.apps.googleusercontent.com",
           "client_type": 3
         }

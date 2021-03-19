@@ -2,6 +2,10 @@ import React from 'react';
 import {StyleSheet, View, Text, Image, Animated, Pressable} from 'react-native';
 import { create } from 'react-test-renderer';
 import { set } from 'react-native-reanimated';
+import auth from '@react-native-firebase/auth';
+import {GoogleSignin} from '@react-native-community/google-signin';
+import onGoogleLogin from '../Social-Login/GoogleLogin';
+
 
 
 
@@ -10,7 +14,8 @@ const Login = ({navigation}) => {
 return(
 
     <View style = {styles.container}>
-        <Pressable style = {styles.loginbutton} title = "Login with Google" onPress = {() => navigation.navigate('LogoScreen')}>
+        <Pressable style = {styles.loginbutton} title = "Login with Google" 
+        onPress = {() => onGoogleLogin().then(() => navigation.navigate("LogoScreen"))}>
             <Text style = {styles.text}>
             Login with Google
             </Text>
