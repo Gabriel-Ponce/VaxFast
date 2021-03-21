@@ -3,7 +3,6 @@ import {StyleSheet, View, Text, Image, Animated, Pressable} from 'react-native';
 import { create } from 'react-test-renderer';
 import { set } from 'react-native-reanimated';
 import auth from '@react-native-firebase/auth';
-import {GoogleSignin} from '@react-native-community/google-signin';
 import onGoogleLogin from '../Social-Login/GoogleLogin';
 
 
@@ -15,7 +14,7 @@ return(
 
     <View style = {styles.container}>
         <Pressable style = {styles.loginbutton} title = "Login with Google" 
-        onPress = {() => onGoogleLogin().then(() => navigation.navigate("LogoScreen"))}>
+        onPress = {() => onGoogleLogin().then(() => navigation.navigate('SurveyHome'))}>
             <Text style = {styles.text}>
             Login with Google
             </Text>

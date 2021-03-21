@@ -6,7 +6,7 @@ import 'react-native-gesture-handler';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import { Header } from 'react-native/Libraries/NewAppScreen';
-
+import SurveyHome from '../Surveys/SurveyHome'
 const Stack = createStackNavigator();
 
 
@@ -18,6 +18,7 @@ return(
   <Stack.Navigator>
     <Stack.Screen name = "LogoScreen" component = {LogoScreen} options={{ headerShown: false }}/>
     <Stack.Screen name = "Login" component = {Login} options = {{ headerShown: false }}/>
+    <Stack.Screen name = "SurveyHome" component = {SurveyHome} options = {{ headerShown: false }}/>
   </Stack.Navigator>
 )
 }
