@@ -36,9 +36,9 @@ container: {
     backgroundColor: 'white'
 },
 logo: {
-top: 100,
+top: 120,
 bottom: -50,
-right: 150,
+right: 130,
 left: -25
 
 

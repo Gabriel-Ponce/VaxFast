@@ -9,14 +9,15 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import {createStackNavigator} from '@react-navigation/stack';
-import SplashHandler from './src/Components/Splash-Login/SplashHandler';
+import ScreenHandler from './src/Components/ScreenHandler'
 import { NavigationContainer } from '@react-navigation/native';
+
 
 const Stack = createStackNavigator();
 const App = () => {
   return(
   <NavigationContainer>
-    <SplashHandler/>
+    <ScreenHandler/>
   </NavigationContainer>
   );
 };

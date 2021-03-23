@@ -54,6 +54,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>tw-cen-classified-mt-std-bold.otf</string>
+		<string>Segoe UI Bold.ttf</string>
+		<string>Segoe UI.ttf</string>
 	</array>
 </dict>
 </plist>
