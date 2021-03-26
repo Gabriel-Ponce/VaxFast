@@ -22,8 +22,7 @@ const onGoogleLogin = async() => {
   
    
 
-   //database().ref('users/' + username + '/isregisterd').on(true, snapshot => {
-    //console.log('User data: ', snapshot.val());});
+   
    
   
   
