@@ -6,8 +6,40 @@ import UseMarker from '../../Hooks/UseMarker'
 const VaccineMap = () => {
 
 const [marker, setMarker] = UseMarker();
+const getCoordinates = () => {
+var coordinates = []
+for(let i = 0; i < marker.markers.length; i++) {
+  if (marker.markers[i].geometry.coordinates[1] == null || marker.markers[i].geometry.coordinates[0] == null) {
+    coordinates[i] = {
+      latitude: 32.963956,
+      longitude: -86.609419
+  }
+}
+  else {
+  coordinates[i] = {
+    latitude: marker.markers[i].geometry.coordinates[1],
+    longitude: marker.markers[i].geometry.coordinates[0],
+  }
+}
 
-return(
+}
+return coordinates;
+}
+
+
+
+var coors = getCoordinates();
+
+
+const getMarkers = () => {
+  let buffer = []
+
+  for (let i = 0; i < coors.length; i++) {
+    buffer.push(<Marker key = {i} coordinate = {coors[i]} title = {`${i}`}/>)
+
+  }
+  console.log(coors)
+  return (
     <View style = {styles.container}>
     <MapView
     style = {styles.map}
@@ -19,9 +51,20 @@ return(
       longitudeDelta: 0.0421
     }}>
     
-     
+    
+      {buffer}
+    
     </MapView>
   </View>
+  )
+ 
+  
+}
+
+return(
+    <>
+    {getMarkers()}
+    </>
     )
 
 }
