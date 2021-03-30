@@ -2,23 +2,23 @@ import React from 'react';
 import {StyleSheet, View, Text, Image, Pressable} from 'react-native';
 import auth, { firebase } from '@react-native-firebase/auth'
 
-const SurveyHome = ({navigation}) => {
+const VaccineMapHome = ({navigation}) => {
 
 
 return(
 
 <View style = {styles.container}>
-    <Image source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Poll_Rec.png')}
+    <Image source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Vax_Rec.png')}
     style = {styles.imgpos}/>
     <Text style = {styles.tittletxt}>
-        Answer an effective poll to determine your Covid-19 chances
+        Check places were the vaccine is available 
     </Text>
     <Text style = {styles.txt}>
-    This poll will help you determine if it's really necessary to get out and expose people to Covid-19 or if you are free of having the virus
+    See our map to see were is the nearest vaccines and export the places to Google Maps
     </Text>
-    <Pressable style = {styles.button} onPress = {() => navigation.navigate("Survey")} >
+    <Pressable style = {styles.button} onPress = {() => navigation.navigate('VaccineMap')}>
         <Text style = {styles.buttxt}>
-        Start
+        Check
         </Text>
     </Pressable>
 </View>
@@ -26,7 +26,7 @@ return(
 }
 
 
-export default SurveyHome;
+export default VaccineMapHome;
 
 
 const styles = StyleSheet.create({
@@ -70,7 +70,7 @@ buttxt: {
     position: "absolute",
     bottom: 10,
     fontSize: 30,
-    left: 85
+    left: 75
 },
 
 button: {
@@ -79,7 +79,7 @@ button: {
     backgroundColor: 'white',
     position: 'absolute',
     left: 70,
-    bottom: 250,
+    bottom: 150,
     height: 60,
     width: 250,
 }

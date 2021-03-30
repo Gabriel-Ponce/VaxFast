@@ -401,8 +401,8 @@ return(
         <Text style = {styles.questiontxt}>
             Have you been in contact with someone with Covid-19
         </Text>
-        <CheckBox style = {styles.CheckBoxyes} disabled = {false} value = {CBs16.question13yes} onValueChange = {(newValue) => setCBs16({ question16answ: 1,question16yes: newValue, question16no: false})}/>
-        <CheckBox style = {styles.CheckBoxno} disabled = {false} value = {CBs16.question13no} onValueChange = {(newValue) => setCBs16({ question16answ: 0,question16yes: false, question16no: newValue})}/>
+        <CheckBox style = {styles.CheckBoxyes} disabled = {false} value = {CBs16.question16yes} onValueChange = {(newValue) => setCBs16({ question16answ: 1,question16yes: newValue, question16no: false})}/>
+        <CheckBox style = {styles.CheckBoxno} disabled = {false} value = {CBs16.question16no} onValueChange = {(newValue) => setCBs16({ question16answ: 0,question16yes: false, question16no: newValue})}/>
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 

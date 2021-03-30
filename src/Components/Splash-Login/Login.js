@@ -13,8 +13,10 @@ const Login = ({navigation}) => {
 return(
 
     <View style = {styles.container}>
+        
+        <Image style = {styles.logo} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Vax-Fast.png')} />
         <Pressable style = {styles.loginbutton} title = "Login with Google" 
-        onPress = {() => onGoogleLogin().then(() => navigation.navigate('SurveyHome'))}>
+        onPress = {() => onGoogleLogin().then(() => navigation.navigate('TabHandler'))}>
             <Text style = {styles.text}>
             Login with Google
             </Text>
@@ -25,6 +27,8 @@ return(
     </View>
 )
 };
+
+export default Login;
 
 const styles = StyleSheet.create({
 container: {
@@ -59,9 +63,12 @@ loginbutton: {
     left: 40,
     right: 40
     //left: -25*/
+},
+logo : {
+    width: 200,
+    height: 200,
+    
 }
 });
 
 
-
-export default Login;
