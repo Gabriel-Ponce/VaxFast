@@ -1,12 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
+import {onGooglesignOut} from '../Social-Login/GoogleLogin'
 import auth from '@react-native-firebase/auth';
 
 
 const Settingsmain = ({navigation}) => {
     return(
     <View style = {styles.container}>
-        <Pressable style = {styles.Signoutbut} onPress = {() => auth().signOut().then(() => navigation.navigate('Login'))}>
+        <Pressable style = {styles.Signoutbut} onPress = {() => onGooglesignOut().then(() => navigation.navigate('Login'))}>
             <Text style = {styles.Signouttxt}>
                 Sign Out
             </Text>

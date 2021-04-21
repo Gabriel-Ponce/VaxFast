@@ -1,29 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
 import database from '@react-native-firebase/database';
 import firebase from '@react-native-firebase/app'
+import '@react-native-firebase/database';
 import auth from '@react-native-firebase/auth'
-import {Percentage} from './Survey'
+import { ActivityIndicator } from 'react-native-paper';
+
+
 var image = 'aa'
-import Survey from './Survey';
 
-var username;
-const user = firebase.auth().currentUser;
-    if (user) {
-     username = user.displayName;
-     console.log("user: " + username);
-    }
-  
-const path = "users/" + username;
-var val = 0
-database().ref(path + '/surveys').once('value').then(snapshot => {
-val = snapshot.val()
-    console.log(snapshot.val());
-});
+
 
   
 
-
+/**
+ * Returns the Date
+ * @returns DD/MM/YYYY
+ */
 const getDate = () => {
 
     var date = new Date().getDate();
@@ -33,95 +26,175 @@ const getDate = () => {
       return ('' + date + '/' + month + '/' + year);
 
 }
-const SurveyResult = ({navigation}) => {
-    const selectBackground = () => {
-        if (Percentage >= 70) {
-            image = 'C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRed.png';
-            database().ref(path).update({
-                surveys:  val + 1
-            });
-            const ref = database().ref('users/' + username + '/' + val)
-            ref.update({
-                Percentage: Percentage,
-                Date: getDate()
-            })
-        }
-        else if (Percentage >= 50) {
-            image = 'C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyYellow.png';
-            database().ref('users/' + username).update({
-                surveys: val + 1
-            });
-             database().ref('users/' + username + '/' + val).update({
-                Percentage: Percentage,
-                Date: getDate()
-            })
-        
-        }
-        else {
-            image = 'C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyGreen.png';
-            database().ref('users/' + username).update({
-                surveys: val + 1
-            });
-             database().ref('users/' + username + '/' + val).update({
-                Percentage: Percentage,
-                Date: getDate()
-            })
-        
-        }
-    }
-    selectBackground();
-    
-    if (Percentage >= 70) {
-    return(
 
-    <View>
-        
-        <Image style = {styles.img} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRed.png')}/>
-        <Text style = {styles.prctxt}> 
-        {Percentage}%
-        </Text>
-        <Image style = {styles.vac} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Injectionwhite.png')}/>
-        <Text style = {styles.txt}>
-            We consider that there is a high chance that you have covid-19 our app is just for basic information so we don't have any warranty that this is true, however we recommend considering taking a covid 19 test
-        </Text>
-        <Pressable style = {styles.buttonred} onPress = {() => navigation.navigate('TabHandler')}>
-        <Text style = {styles.buttontxt}>
-            Home
-        </Text>
-        </Pressable>
-
-    </View>
     
-);
+
+/**  asyncronous functions that returns the survey percentage
+ * from the firebase database
+ *  @link https://rnfirebase.io/database/usage 
+*/
+const getPercentage = async() => {    
+var Percentage;
+var username;
+const user = firebase.auth().currentUser;
+    if (user) {
+     username = user.displayName;
+     console.log("user: " + username);
+    } 
+    const path = "users/" + username;
+ return await database().ref(path + '/lastpercentage/').once('value').then((snapshot) => 
+{
+
+    Percentage = snapshot.val();
+    console.log(Percentage);
+    console.log(path);
+    return snapshot.val();
+});
 }
-    else if (Percentage >= 50) {
-        return(
-        <View>
+/**  asyncronous functions that returns the numbers of surveys that have been answered
+ * from the firebase database
+ *  @link https://rnfirebase.io/database/usage 
+*/
+const getVal = async() => {
+    const user = firebase.auth().currentUser;
+    if (user) {
+     username = user.displayName;
+     console.log("user: " + username);
+    } 
+    const path = "users/" + username;
+
+    return database().ref(path + '/surveys').once('value').then((snapshot) => {
+    return snapshot.val()
+    
+});
+    }
+
+
+
+const SurveyResult = ({navigation}) => {
+
+const [percentage, setpercentage] = useState(0);
+const [val, setval] = useState(0);
+const [changed, setchanged] = useState(false);
+const [loading, setloading] = useState({
+    perloading: true,
+    valloading: true
+    
+
+})
+var username;
+
+const user = firebase.auth().currentUser;
+    if (user) {
+     username = user.displayName;
+     console.log("user: " + username);
+    } 
+    const path = "users/" + username;
+    
+    
+    /**
+     * Updates the percentage to the database
+     * @link https://rnfirebase.io/database/usage 
+     */
+    const updatedbPercentage = async() => {
+        await database().ref(path).update({
+            surveys:  val + 1
+        });
+        const ref = database().ref('users/' + username + '/' + val)
+        await ref.update({
+            Percentage: percentage,
+            Date: getDate()
+     
+});
+}
+    
+
+useEffect(async() => { 
+     await getPercentage().then((result) => {
+        setpercentage(result);
+        let loadingcopy = {...loading};
+        loadingcopy.perloading = false;
+  //copying loading val to update it later
+        setloading({
+            perloading: false,
+            valloading: loadingcopy.valloading
+        })
+    })
+    await getVal().then((result) => {
+        setval(result);
+        let loadingcopy = {...loading}; //copying loading percentage to update it later
+        setloading({
+            perloading: loadingcopy.perloading,
+            valloading: false
+        })
+        
+    })
+
+    
+    
+},[]);
+
+if (loading.valloading == false) {
+updatedbPercentage();
+}
+    
+    
+    
+    console.log(val , percentage);
+    console.log(loading.valloading, loading.perloading);
+   
+    
+   return (
+       <View>
+           {
+               
+             loading.perloading && loading.valloading? 
+             <ActivityIndicator animating = {true}/>
+            
+             :
+             percentage >= 70 ?
+             <View>
+        
+             <Image style = {styles.img} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRed.png')}/>
+             <Text style = {styles.prctxt}> 
+             {percentage}%
+             </Text>
+             <Image style = {styles.vac} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Injectionwhite.png')}/>
+             <Text style = {styles.txt}>
+                 We consider that there is a high chance that you have covid-19 our app is just for basic information so we don't have any warranty that this is true, however we recommend considering taking a covid 19 test
+             </Text>
+             <Pressable style = {styles.buttonred} onPress = {() => navigation.navigate('SurveyHome')}>
+             <Text style = {styles.buttontxt}>
+                 Home
+             </Text>
+             </Pressable>
+     
+         </View>
+         :
+         percentage >= 50 ?
+         <View>
         
             <Image style = {styles.img} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyYellow.png')}/>
             <Text style = {styles.prctxt}> 
-            {Percentage}%
+            {percentage}%
             </Text>
             <Image style = {styles.vac} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Injectionwhite.png')}/>
             <Text style = {styles.txt}>
                 We consider you are in risk of having Covid-19 this is not a high risk
             </Text>
-            <Pressable style = {styles.buttonyellow} onPress = {() => console.log("")}>
+            <Pressable style = {styles.buttonyellow} onPress = {() => navigation.navigate('SurveyHome')}>
             <Text style = {styles.buttontxt}>
                 Home
             </Text>
             </Pressable>
     
         </View>
-        );
-    }
-        else {
-        return(
-        <View>
+         :
+         <View>
         
             <Image style = {styles.img} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyGreen.png')}/>
             <Text style = {styles.prctxt}> 
-            {Percentage}%
+            {percentage}%
             </Text>
             <Image style = {styles.vac} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Injectionwhite.png')}/>
             <Text style = {styles.txt}>
@@ -134,9 +207,11 @@ const SurveyResult = ({navigation}) => {
             </Pressable>
     
         </View>
-        );
-    }
+           }
+       </View>
+   )
 }
+
 
 const styles = StyleSheet.create({
     

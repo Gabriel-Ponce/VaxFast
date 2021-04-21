@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, Image, Pressable, Alert, } from 'react-native';
 import CheckBox from '@react-native-community/checkbox'
+import database, { firebase } from '@react-native-firebase/database'
 import { ScrollView } from 'react-native-gesture-handler';
-export var Percentage = 0;
 const Survey = ({navigation}) => {
 
 
@@ -155,10 +155,19 @@ const Survey = ({navigation}) => {
 
  const checkAnswer = () => {
     console.log("buenas")
+    var Percentage = 0;
     var covquestions = 0;
     var sympthquestions = 0;
     var chronicquestions = 0;
     var workquestions = 0;
+    var username;
+    const user = firebase.auth().currentUser;
+    if (user){
+    username =  firebase.auth().currentUser.displayName;
+    }
+
+    const path = 'users/' + username;
+
     for (var i = 1; i <= 18; i++) {
         console.log("buenas2")
         var current = eval(`CBs${i}.question${i}answ`);
@@ -186,7 +195,7 @@ const Survey = ({navigation}) => {
     }
     
     if (sympthquestions >= 5) {
-        Percentage =  50;
+        per =  50;
     }
     else if (sympthquestions >= 3) {
         Percentage =  30;
@@ -197,7 +206,7 @@ const Survey = ({navigation}) => {
     Percentage = Percentage + 15*(workquestions)
 
     if (Percentage > 100) {
-        Percentage = 90;
+        Percentage = 95;
     }
 
     console.log("cov: " + covquestions)
@@ -205,6 +214,10 @@ const Survey = ({navigation}) => {
     console.log("chro: " + chronicquestions)
     console.log("work: " + workquestions)
     console.log("percentage: " + Percentage)
+    
+    database().ref(path).update({ lastpercentage: Percentage });
+    
+    
     navigation.navigate("SurveyResult")
 }
 
