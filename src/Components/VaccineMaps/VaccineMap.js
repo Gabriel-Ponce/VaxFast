@@ -2,18 +2,31 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, Image, Pressable, StyleSheet} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import UseMarker from '../../Hooks/UseMarker'
+import {ActivityIndicator} from 'react-native-paper';
+import {Places, setselectedstate, selectedstate} from '../../libs/Places'
 
 const VaccineMap = () => {
 
-const [marker, setMarker] = UseMarker();
+const [marker, setMarker] = UseMarker(Places[selectedstate]);
 const getCoordinates = () => {
 var coordinates = []
 for(let i = 0; i < marker.markers.length; i++) {
+  console.log(i);
   if (marker.markers[i].geometry.coordinates[1] == null || marker.markers[i].geometry.coordinates[0] == null) {
+    if (coordinates[0].longitude != null || coordinates[0].latitude != null) {
+      coordinates[i] = {
+        latitude: coordinates[0].longitude,
+        longitude: coordinates[0].latitudeDelta
+        
+    }
+    }
+    else {
     coordinates[i] = {
       latitude: 32.963956,
       longitude: -86.609419
+      
   }
+}
 }
   else {
   coordinates[i] = {
@@ -35,7 +48,7 @@ const getMarkers = () => {
   let buffer = []
 
   for (let i = 0; i < coors.length; i++) {
-    buffer.push(<Marker key = {i} coordinate = {coors[i]} title = {`${i}`}/>)
+    buffer.push(<Marker key = {i} coordinate = {coors[i]} title = {`${marker.markers[i].properties.address} , ${marker.markers[i].properties.city}`}/>)
 
   }
   console.log(coors)
@@ -45,8 +58,8 @@ const getMarkers = () => {
     style = {styles.map}
     provider = {PROVIDER_GOOGLE}
     initialRegion={{
-      latitude: 19.263720205373147,
-      longitude: -99.56709876341496,
+      latitude: coors[0].latitude,
+      longitude: coors[0].longitude,
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421
     }}>
@@ -61,9 +74,15 @@ const getMarkers = () => {
   
 }
 
-return(
+return( 
+    <>
+    { marker.loading?
+    <ActivityIndicator/>
+    :
     <>
     {getMarkers()}
+    </>
+}
     </>
     )
 

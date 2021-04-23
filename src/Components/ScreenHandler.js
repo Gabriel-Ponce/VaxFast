@@ -10,7 +10,8 @@ import Login from './Splash-Login/Login';
 import VaccineMapHome from './VaccineMaps/VaccineMapHome';
 import Settingsmain from './Settings/Settingsmain';
 import SurveyDisplay from './Settings/SurveyDisplay';
-import VaccineMap from './VaccineMaps/VaccineMap'
+import VaccineMap from './VaccineMaps/VaccineMap';
+import VaccineMapSelect from './VaccineMaps/VaccineMapSelect'
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -54,6 +55,7 @@ return(
         <Stack.Screen name = "Survey" component = {Survey}/>
         <Stack.Screen name = "SurveyDisplay" component = {SurveyDisplay}/>
         <Stack.Screen name = "VaccineMap" component = {VaccineMap}/>
+        <Stack.Screen name = "VaccineMapSelect" component = {VaccineMapSelect}/>
     </Stack.Navigator>
     
     

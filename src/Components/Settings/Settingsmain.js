@@ -17,7 +17,7 @@ const Settingsmain = ({navigation}) => {
                 Info
             </Text>
         </Pressable>
-        <Pressable style = {styles.but2} onPress = {() => auth().signOut().then(() => navigation.navigate('SurveyDisplay'))}>
+        <Pressable style = {styles.but2} onPress = {() => navigation.navigate('SurveyDisplay')}>
             <Text style = {styles.Signouttxt}>
                 Surveys' Result
             </Text>

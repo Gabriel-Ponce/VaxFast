@@ -55,8 +55,9 @@ const user = firebase.auth().currentUser;
  * from the firebase database
  *  @link https://rnfirebase.io/database/usage 
 */
-const getVal = async() => {
+export const getVal = async() => {
     const user = firebase.auth().currentUser;
+    var username;
     if (user) {
      username = user.displayName;
      console.log("user: " + username);

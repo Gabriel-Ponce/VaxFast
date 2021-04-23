@@ -16,7 +16,7 @@ return(
     <Text style = {styles.txt}>
     See our map to see were is the nearest vaccines and export the places to Google Maps
     </Text>
-    <Pressable style = {styles.button} onPress = {() => navigation.navigate('VaccineMap')}>
+    <Pressable style = {styles.button} onPress = {() => navigation.navigate('VaccineMapSelect')}>
         <Text style = {styles.buttxt}>
         Check
         </Text>
