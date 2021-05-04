@@ -12,7 +12,7 @@ const Settingsmain = ({navigation}) => {
                 Sign Out
             </Text>
         </Pressable>
-        <Pressable style = {styles.but} onPress = {() => auth().signOut().then(() => navigation.navigate('Login'))}>
+        <Pressable style = {styles.but} onPress = {() => {}}>
             <Text style = {styles.Signouttxt}>
                 Info
             </Text>

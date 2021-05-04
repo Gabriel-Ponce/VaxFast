@@ -38,7 +38,7 @@ const onGoogleLogin = async() => {
     
     
     const ref = await database().ref(path + '/surveys');
-    ref.once('value').then(snapshot => {
+    await ref.once('value').then(snapshot => {
       if (snapshot.exists()) {
         
         console.log(snapshot.val());
@@ -59,14 +59,18 @@ const onGoogleLogin = async() => {
     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
       // user cancelled the login flow
       alert('Cancel');
+      return Promise.reject('Login Canceled');
     } else if (error.code === statusCodes.IN_PROGRESS) {
       alert('Signin in progress');
+      return Promise.reject('Login in progress');
       // operation (f.e. sign in) is in progress already
     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
       alert('PLAY_SERVICES_NOT_AVAILABLE');
+      return Promise.reject('Login Failed Google Services');
       // play services not available or outdated
     } else {
       // some other error happened
+      return Promise.reject('Error happened');
     }
   }
   

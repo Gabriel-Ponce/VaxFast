@@ -1,10 +1,11 @@
 import {useState} from 'react';
+
 export const Countries = [
-"USA",
+"United States",
 "Mexico"
 
 ]
-export const Places = [
+export const Places = [ 
     "AL",
     "AK",
     "AZ",
@@ -58,10 +59,18 @@ export const Places = [
 	"WA",
  	"WV",
  	"WI",
-	"WY"
+    "WY",
+   
+
 ]
 
 
+var selectedCountry = 0;
+export {selectedCountry};
+export const setselectedCountry = (change) => {
+selectedCountry = change
+
+}
 var selectedstate = 0;
 export {selectedstate};
 export const setselectedstate = (change) => {

@@ -16,7 +16,7 @@ return(
         
         <Image style = {styles.logo} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Vax-Fast.png')} />
         <Pressable style = {styles.loginbutton} title = "Login with Google" 
-        onPress = {() => onGoogleLogin().then(() => navigation.navigate('TabHandler'))}>
+        onPress = {() => onGoogleLogin().then(() => navigation.navigate('TabHandler')).catch(console.log('LoginError'))}>
             <Text style = {styles.text}>
             Login with Google
             </Text>
@@ -70,5 +70,3 @@ logo : {
     
 }
 });
-
-

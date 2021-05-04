@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, StyleSheet, Text, Image, Pressable, ScrollView} from 'react-native';
 import {setselectedstate, selectedstate} from '../../libs/Places'
 import UseRegion from '../../Hooks/UseRegion';
+import { ActivityIndicator } from 'react-native-paper';
 
 
 
@@ -20,7 +21,7 @@ const getPlaces = () => {
                     setselectedstate(oneofstate);
                     navigation.navigate('VaccineMap')
                 }}>
-                    <Text>
+                    <Text style = {styles.txt}>
                         {region.states[i].name}
                     </Text>
                 </Pressable>
@@ -32,8 +33,8 @@ const getPlaces = () => {
         return(
             <>
             <View style = {styles.Viewbut} >
-                <Text>
-                    Select State or Country
+                <Text style = {styles.txt}>
+                    Select Region
                 </Text>
             </View>
             <View style = {styles.SpaceView}/>
@@ -42,9 +43,14 @@ const getPlaces = () => {
         )
     }   
 return(
+    
+    region.loading ? 
+    <ActivityIndicator/>
+    :
     <ScrollView style = {styles.container}>
         {getPlaces()}
     </ScrollView>
+    
 )
 
 }
@@ -59,7 +65,7 @@ const styles = StyleSheet.create({
         left: 40,
         top: 80,
         padding: 30,
-        backgroundColor: "#8605B5",
+        backgroundColor: "#0EDF97",
         width:300,
         borderRadius: 50,
     },
@@ -68,6 +74,13 @@ const styles = StyleSheet.create({
         padding: 30,
         
        
+    },
+    
+    txt: {
+        fontFamily: 'Segoe UI Bold',
+        fontSize: 25,
+        
+        color: 'white'
     }
     
 })

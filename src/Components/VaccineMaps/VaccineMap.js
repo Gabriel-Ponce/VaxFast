@@ -3,11 +3,11 @@ import {View, Text, Image, Pressable, StyleSheet} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import UseMarker from '../../Hooks/UseMarker'
 import {ActivityIndicator} from 'react-native-paper';
-import {Places, setselectedstate, selectedstate} from '../../libs/Places'
+import {Places, setselectedstate, selectedstate, selectedCountry, Countries} from '../../libs/Places'
 
 const VaccineMap = () => {
 
-const [marker, setMarker] = UseMarker(Places[selectedstate]);
+const [marker, setMarker] = UseMarker(Countries[selectedCountry], Places[selectedstate]);
 const getCoordinates = () => {
 var coordinates = []
 for(let i = 0; i < marker.markers.length; i++) {
