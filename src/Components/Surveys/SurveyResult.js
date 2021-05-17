@@ -156,11 +156,11 @@ updatedbPercentage();
              percentage >= 70 ?
              <View>
         
-             <Image style = {styles.img} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRed.png')}/>
+             <Image style = {styles.img} source = {require('../../Assets/SurveyRed.png')}/>
              <Text style = {styles.prctxt}> 
              {percentage}%
              </Text>
-             <Image style = {styles.vac} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Injectionwhite.png')}/>
+             <Image style = {styles.vac} source = {require('../../Assets/Injectionwhite.png')}/>
              <Text style = {styles.txt}>
                  We consider that there is a high chance that you have covid-19 our app is just for basic information so we don't have any warranty that this is true, however we recommend considering taking a covid 19 test
              </Text>
@@ -175,11 +175,11 @@ updatedbPercentage();
          percentage >= 50 ?
          <View>
         
-            <Image style = {styles.img} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyYellow.png')}/>
+            <Image style = {styles.img} source = {require('../../Assets/SurveyYellow.png')}/>
             <Text style = {styles.prctxt}> 
             {percentage}%
             </Text>
-            <Image style = {styles.vac} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Injectionwhite.png')}/>
+            <Image style = {styles.vac} source = {require('../../Assets/Injectionwhite.png')}/>
             <Text style = {styles.txt}>
                 We consider you are in risk of having Covid-19 this is not a high risk
             </Text>
@@ -193,11 +193,11 @@ updatedbPercentage();
          :
          <View>
         
-            <Image style = {styles.img} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyGreen.png')}/>
+            <Image style = {styles.img} source = {require('../../Assets/SurveyGreen.png')}/>
             <Text style = {styles.prctxt}> 
             {percentage}%
             </Text>
-            <Image style = {styles.vac} source = {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Injectionwhite.png')}/>
+            <Image style = {styles.vac} source = {require('../../Assets/Injectionwhite.png')}/>
             <Text style = {styles.txt}>
                 Congratulations we have evaluated that you are risk free!
             </Text>

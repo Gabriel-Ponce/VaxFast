@@ -227,7 +227,7 @@ const Survey = ({navigation}) => {
  
 return(
     <ScrollView style = {styles.container}>
-        <Image source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.questionbox}/>
+        <Image source = {require('../../Assets/SurveyRectangle.png')} style = {styles.questionbox}/>
         <Text style = {styles.question1tittxt}>
             Question 1
         </Text>
@@ -239,7 +239,7 @@ return(
         <Text style = {styles.checkbox1txtyes}>yes</Text> 
         <Text style = {styles.checkbox1txtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 2
         </Text>
@@ -251,7 +251,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 3
         </Text>
@@ -263,7 +263,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 4
         </Text>
@@ -275,7 +275,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 5
         </Text>
@@ -287,7 +287,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 6
         </Text>
@@ -299,7 +299,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 7
         </Text>
@@ -311,7 +311,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 8
         </Text>
@@ -323,7 +323,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 9
         </Text>
@@ -335,7 +335,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 10
         </Text>
@@ -347,7 +347,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 11
         </Text>
@@ -359,7 +359,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 12
         </Text>
@@ -371,7 +371,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 13
         </Text>
@@ -383,7 +383,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 14
         </Text>
@@ -395,7 +395,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 15
         </Text>
@@ -407,7 +407,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 16
         </Text>
@@ -419,7 +419,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 17
         </Text>
@@ -431,7 +431,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
         <Text style = {styles.questiontittxt}>
             Question 18
         </Text>

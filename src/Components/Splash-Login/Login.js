@@ -14,7 +14,7 @@ return(
 
     <View style = {styles.container}>
         
-        <Image style = {styles.logo} source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Vax-Fast.png')} />
+        <Image style = {styles.logo} source = {require('../../Assets/Vax-Fast.png')} />
         <Pressable style = {styles.loginbutton} title = "Login with Google" 
         onPress = {() => onGoogleLogin().then(() => navigation.navigate('TabHandler')).catch(console.log('LoginError'))}>
             <Text style = {styles.text}>

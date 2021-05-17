@@ -55,7 +55,7 @@ const LogoScreen = ({navigation}) => {
         <Animated.View styles = {[{
             opacity: fadeIn
         }]}>
-    <Image source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Vax-Fast.png')}
+    <Image source = {require('../../Assets/Vax-Fast.png')}
      style = {styles.logo}/>
         </Animated.View>
     </View>

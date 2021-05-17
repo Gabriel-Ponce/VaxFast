@@ -24,7 +24,7 @@ const TabHandler = () => {
         <Tab.Screen name = "SurveyHome" component = {SurveyHome}  options = {{headerShown: false,  tabBarIcon: ()=> {
         return <Image
         style = {styles.img}
-        source= {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Poll.png')}
+        source= {require('../Assets/Poll.png')}
         
       />
         }, 
@@ -33,13 +33,13 @@ const TabHandler = () => {
         <Tab.Screen name = "VaccineMapHome" component = {VaccineMapHome}  options = {{headerShown: false,  tabBarIcon:() => {
             return <Image
             style = {styles.img2}
-            source= {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/VaxIco.png')}/>
+            source= {require('../Assets/VaxIco.png')}/>
         }, tabBarColor: '#0EDF97'}}/>
 
         <Tab.Screen name = "Setting" component = {Settingsmain}  options = {{headerShown: false,  tabBarIcon:() => {
             return <Image
             style = {styles.img2}
-            source= {require('C:/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/SettingsIco.png')}/>
+            source= {require('../Assets/SettingsIco.png')}/>
         }, tabBarColor: '#8605B5'}}/>
     </Tab.Navigator>
     )

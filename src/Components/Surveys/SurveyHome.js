@@ -8,7 +8,7 @@ const SurveyHome = ({navigation}) => {
 return(
 
 <View style = {styles.container}>
-    <Image source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Poll_Rec.png')}
+    <Image source = {require('../../Assets/Poll_Rec.png')}
     style = {styles.imgpos}/>
     <Text style = {styles.tittletxt}>
         Answer an effective poll to determine your Covid-19 chances

@@ -8,7 +8,7 @@ const VaccineMapHome = ({navigation}) => {
 return(
 
 <View style = {styles.container}>
-    <Image source = {require('/Users/ponce/OneDrive/Documentos/Workspace/Frontend/VaxFast/src/Assets/Vax_Rec.png')}
+    <Image source = {require('../../Assets/Vax_Rec.png')}
     style = {styles.imgpos}/>
     <Text style = {styles.tittletxt}>
         Check places were the vaccine is available 
