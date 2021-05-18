@@ -1,4 +1,4 @@
-const Mexico = {
+export const Mexico = {
   "type": "FeatureCollection",
   "features": [
     {
@@ -2092,4 +2092,3 @@ const Mexico = {
   ]
 }
 
-export default Mexico;

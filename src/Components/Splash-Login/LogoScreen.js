@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect} from "react";
 import {StyleSheet, View, Image, Animated} from 'react-native';
-import { s, vs, ms, mvs } from 'react-native-size-matters';
+import {widthPercentageToDP, heightPercentageToDP} from 'react-native-responsive-screen'
 import { create } from 'react-test-renderer';
 import auth from '@react-native-firebase/auth';
 import firebase from '@react-native-firebase/app';
@@ -66,18 +66,18 @@ const LogoScreen = ({navigation}) => {
 const styles = StyleSheet.create({
 container: {
 
-    width: s(700),
-    height: vs(700),
+    width: widthPercentageToDP('100%'),
+    height: heightPercentageToDP('100%'),
     backgroundColor: 'white'
 },
 logo: {
     
-    alignItems: 'center',
-    justifyContent: 'center',
-    left: '5%',
-    top: '45%',
-    width: s(300),
-    height: vs(350),
+    //alignItems: 'center',
+    //justifyContent: 'center',
+    left: widthPercentageToDP('20%'),
+    top: heightPercentageToDP('25%'),
+    width: widthPercentageToDP('65%'),
+    height: heightPercentageToDP('50%'),
     }
 });
 

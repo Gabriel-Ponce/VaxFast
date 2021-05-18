@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import Mexico from '../libs/Mexico';
+import {Countries, selectedCountry} from '../libs/Places'
+import {Mexico as mexico} from '../libs/Mexico';
 
 
 let baseUrl = "https://www.vaccinespotter.org/api/v0/states/";
@@ -41,11 +42,15 @@ useEffect(() => {
 }
 else {
 
+   const Mexico = mexico
+
+
 
 useEffect(() => {
-    
+    console.log(`${Countries[selectedCountry]}`);
+    const country = `${Countries[selectedCountry]}`
   setState({
-    markers: Mexico.features,
+    markers: eval(`${country}.features`),
     loading: false
   })
 
