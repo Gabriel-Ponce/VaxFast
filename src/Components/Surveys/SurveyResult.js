@@ -3,9 +3,11 @@ import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
 import database from '@react-native-firebase/database';
 import firebase from '@react-native-firebase/app'
 import '@react-native-firebase/database';
-import auth from '@react-native-firebase/auth'
+import {SurveyResulttxt} from '../../libs/Text'
 import { ActivityIndicator } from 'react-native-paper';
-
+import {RFValue} from 'react-native-responsive-fontsize';
+import {heightPercentageToDP, widthPercentageToDP} from 'react-native-responsive-screen';
+import { acc } from 'react-native-reanimated';
 
 var image = 'aa'
 
@@ -76,7 +78,7 @@ const SurveyResult = ({navigation}) => {
 
 const [percentage, setpercentage] = useState(0);
 const [val, setval] = useState(0);
-const [changed, setchanged] = useState(false);
+const [message, setmessage] = useState(0);
 const [loading, setloading] = useState({
     perloading: true,
     valloading: true
@@ -108,6 +110,53 @@ const user = firebase.auth().currentUser;
      
 });
 }
+
+/**
+ * Selects the message and the color of it, according to its percentage
+ * @param Percentage
+ * Its the percentage from the survey
+ * @returns
+ * render of the survey result in a jsx element
+ */
+const getMessage = (Percentage) => {
+    var number = 0;
+    var string = "";
+    switch (Percentage) {
+        case (Percentage >= 70):
+            number = 0;
+            string = "red";
+            break;
+
+        case(Percentage >= 40):
+            number = 1;
+            string = "yellow";
+            break;
+
+        default:
+            number = 2;
+            string = "green";
+            break;
+
+
+    }
+    return (<View>
+        
+        <View style = {eval(`styles.${string}box`)} />
+        <Text style = {styles.prctxt}> 
+        {Percentage}%
+        </Text>
+        <Image style = {styles.vac} source = {require('../../Assets/Injectionwhite.png')}/>
+        <Text style = {styles.txt}>
+        {SurveyResulttxt[number]}    
+        </Text>
+        <Pressable style = {eval(`styles.button${string}`)} onPress = {() => navigation.navigate('SurveyHome')}>
+        <Text style = {styles.buttontxt}>
+            Home
+        </Text>
+        </Pressable>
+
+    </View>)
+}
     
 
 useEffect(async() => { 
@@ -120,7 +169,7 @@ useEffect(async() => {
             perloading: false,
             valloading: loadingcopy.valloading
         })
-    })
+    });
     await getVal().then((result) => {
         setval(result);
         let loadingcopy = {...loading}; //copying loading percentage to update it later
@@ -129,7 +178,10 @@ useEffect(async() => {
             valloading: false
         })
         
-    })
+    });
+    
+
+
 
     
     
@@ -148,66 +200,7 @@ updatedbPercentage();
    return (
        <View>
            {
-               
-             loading.perloading && loading.valloading? 
-             <ActivityIndicator animating = {true}/>
-            
-             :
-             percentage >= 70 ?
-             <View>
-        
-             <Image style = {styles.img} source = {require('../../Assets/SurveyRed.png')}/>
-             <Text style = {styles.prctxt}> 
-             {percentage}%
-             </Text>
-             <Image style = {styles.vac} source = {require('../../Assets/Injectionwhite.png')}/>
-             <Text style = {styles.txt}>
-                 We consider that there is a high chance that you have covid-19 our app is just for basic information so we don't have any warranty that this is true, however we recommend considering taking a covid 19 test
-             </Text>
-             <Pressable style = {styles.buttonred} onPress = {() => navigation.navigate('SurveyHome')}>
-             <Text style = {styles.buttontxt}>
-                 Home
-             </Text>
-             </Pressable>
-     
-         </View>
-         :
-         percentage >= 50 ?
-         <View>
-        
-            <Image style = {styles.img} source = {require('../../Assets/SurveyYellow.png')}/>
-            <Text style = {styles.prctxt}> 
-            {percentage}%
-            </Text>
-            <Image style = {styles.vac} source = {require('../../Assets/Injectionwhite.png')}/>
-            <Text style = {styles.txt}>
-                We consider you are in risk of having Covid-19 this is not a high risk
-            </Text>
-            <Pressable style = {styles.buttonyellow} onPress = {() => navigation.navigate('SurveyHome')}>
-            <Text style = {styles.buttontxt}>
-                Home
-            </Text>
-            </Pressable>
-    
-        </View>
-         :
-         <View>
-        
-            <Image style = {styles.img} source = {require('../../Assets/SurveyGreen.png')}/>
-            <Text style = {styles.prctxt}> 
-            {percentage}%
-            </Text>
-            <Image style = {styles.vac} source = {require('../../Assets/Injectionwhite.png')}/>
-            <Text style = {styles.txt}>
-                Congratulations we have evaluated that you are risk free!
-            </Text>
-            <Pressable style = {styles.buttongreen} onPress = {() => navigation.navigate('SurveyHome')}>
-            <Text style = {styles.buttontxt}>
-                Home
-            </Text>
-            </Pressable>
-    
-        </View>
+            getMessage(percentage)
            }
        </View>
    )
@@ -217,62 +210,94 @@ updatedbPercentage();
 const styles = StyleSheet.create({
     
     buttonred: {
-        padding: 20,
-        borderRadius: 100,
-        backgroundColor: '#FF0000',
-        bottom: 400
+        height: heightPercentageToDP('10%'),
+        borderRadius: heightPercentageToDP('10%'),
+        bottom: heightPercentageToDP('30%'),
+        width: widthPercentageToDP('80%'),
+        left: widthPercentageToDP('10%'),
+        backgroundColor: '#FF0000'
     },
     buttonyellow: {
-        padding: 20,
-        borderRadius: 100,
-        backgroundColor: '#FFDF00',
-        bottom: 250
+        height: heightPercentageToDP('10%'),
+        borderRadius: heightPercentageToDP('10%'),
+        bottom: heightPercentageToDP('30%'),
+        width: widthPercentageToDP('80%'),
+        left: widthPercentageToDP('10%'),
+        backgroundColor: '#FFDF00'
     },
     buttongreen: {
-        padding: 20,
-        borderRadius: 100,
-        backgroundColor: '#18A80E',
-        bottom: 250
+        height: heightPercentageToDP('10%'),
+        borderRadius: heightPercentageToDP('10%'),
+        bottom: heightPercentageToDP('30%'),
+        width: widthPercentageToDP('80%'),
+        left: widthPercentageToDP('10%'),
+        backgroundColor: '#18A80E'
     },
     buttontxt : {
-        fontSize: 25,
+        fontSize: RFValue(25),
         fontFamily: 'Segoe UI Bold',
         color: 'white',
-        width: 300,
-        left: 140,
+        left: widthPercentageToDP('30%'),
+        top: heightPercentageToDP('3%')
         
         
     },
     vac: {
-        bottom: 500,
-        height: 200,
-        width: 200,
-        left: 100
+        bottom: heightPercentageToDP('60%'),
+        height: heightPercentageToDP('20%'),
+        width: widthPercentageToDP('60%'),
+        left: widthPercentageToDP('20%')
         
     },
     img: {
-        left: 45,
+        left: 150,
         top: 50
     },
     prctxt: {
-        fontSize: 40,
+        fontSize: RFValue(40),
         fontFamily: 'Segoe UI Bold',
         color: 'white',
-        width: 300,
-        left: 160,
-        bottom: 470
+        left: widthPercentageToDP('40%'),
+        bottom: heightPercentageToDP('63%')
         
         
     },
     txt: {
-        fontSize: 20,
+        fontSize:  RFValue(25),
         fontFamily: 'Segoe UI',
         color: 'white',
-        width: 270,
-        left: 70,
-        bottom: 470
+        width: widthPercentageToDP('70%'),
+        left: widthPercentageToDP('15%'),
+        bottom: heightPercentageToDP('55%')
         
         
+    },
+    redbox: {
+        top: heightPercentageToDP('5%'),
+        left: widthPercentageToDP('10%'),
+        borderRadius: heightPercentageToDP('5%'),
+        width: widthPercentageToDP('80%'),
+        height: heightPercentageToDP('70%'),
+        backgroundColor: '#FF0000'
+    },
+
+    yellowbox: {
+        top: heightPercentageToDP('5%'),
+        left: widthPercentageToDP('10%'),
+        borderRadius: heightPercentageToDP('5%'),
+        width: widthPercentageToDP('80%'),
+        height: heightPercentageToDP('70%'),
+        backgroundColor: '#FFDF00'
+
+
+    },
+    greenbox: {
+        top: heightPercentageToDP('5%'),
+        left: widthPercentageToDP('10%'),
+        borderRadius: heightPercentageToDP('5%'),
+        width: widthPercentageToDP('80%'),
+        height: heightPercentageToDP('70%'),
+        backgroundColor: '#18A80E'
     }
 })
 export default SurveyResult

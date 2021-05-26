@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, Image, Pressable, Alert, } from 'react-native';
+import {StyleSheet, Text, Image, Pressable, Alert, View} from 'react-native';
 import CheckBox from '@react-native-community/checkbox'
 import database, { firebase } from '@react-native-firebase/database'
 import { ScrollView } from 'react-native-gesture-handler';
+import {RFValue} from 'react-native-responsive-fontsize';
+import {heightPercentageToDP, widthPercentageToDP} from 'react-native-responsive-screen';
+
 const Survey = ({navigation}) => {
 
 
@@ -195,7 +198,7 @@ const Survey = ({navigation}) => {
     }
     
     if (sympthquestions >= 5) {
-        per =  50;
+        Percentage =  50;
     }
     else if (sympthquestions >= 3) {
         Percentage =  30;
@@ -227,19 +230,19 @@ const Survey = ({navigation}) => {
  
 return(
     <ScrollView style = {styles.container}>
-        <Image source = {require('../../Assets/SurveyRectangle.png')} style = {styles.questionbox}/>
-        <Text style = {styles.question1tittxt}>
+        <View style = {styles.questionbox}/>
+        <Text style = {styles.questiontittxt}>
             Question 1
         </Text>
-        <Text style = {styles.question1txt}>
+        <Text style = {styles.questiontxt}>
         Have you been Covid-19 tested, getting the test by the nose or throat?
         </Text>
-        <CheckBox style = {styles.CheckBox1yes} disabled = {false} value = {CBs1.question1yes} onValueChange = {(newValue) => setCBs1({ question1answ: 1,question1yes: newValue, question1no: false})}/>
-        <CheckBox style = {styles.CheckBox1no} disabled = {false} value = {CBs1.question1no} onValueChange = {(newValue) => setCBs1({ question1answ: 0,question1yes: false, question1no: newValue})}/>
-        <Text style = {styles.checkbox1txtyes}>yes</Text> 
-        <Text style = {styles.checkbox1txtno}>no</Text>
+        <CheckBox style = {styles.CheckBoxyes} disabled = {false} value = {CBs1.question1yes} onValueChange = {(newValue) => setCBs1({ question1answ: 1,question1yes: newValue, question1no: false})}/>
+        <CheckBox style = {styles.CheckBoxno} disabled = {false} value = {CBs1.question1no} onValueChange = {(newValue) => setCBs1({ question1answ: 0,question1yes: false, question1no: newValue})}/>
+        <Text style = {styles.checkboxtxtyes}>yes</Text> 
+        <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 2
         </Text>
@@ -251,7 +254,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 3
         </Text>
@@ -263,7 +266,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 4
         </Text>
@@ -275,7 +278,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 5
         </Text>
@@ -287,7 +290,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 6
         </Text>
@@ -299,7 +302,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 7
         </Text>
@@ -311,7 +314,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 8
         </Text>
@@ -323,7 +326,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 9
         </Text>
@@ -335,7 +338,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 10
         </Text>
@@ -347,7 +350,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 11
         </Text>
@@ -359,7 +362,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 12
         </Text>
@@ -371,7 +374,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 13
         </Text>
@@ -383,7 +386,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 14
         </Text>
@@ -395,7 +398,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 15
         </Text>
@@ -407,7 +410,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
         
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 16
         </Text>
@@ -419,7 +422,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox}/>
         <Text style = {styles.questiontittxt}>
             Question 17
         </Text>
@@ -431,7 +434,7 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Image style = {styles.question2box} source = {require('../../Assets/SurveyRectangle.png')} style = {styles.question1box}/>
+        <View style = {styles.questionbox} />
         <Text style = {styles.questiontittxt}>
             Question 18
         </Text>
@@ -459,137 +462,82 @@ export default Survey;
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
-      
+        height: heightPercentageToDP('100%'),
+        width: widthPercentageToDP('100%')      
     },
-    question1tittxt: {
-        fontSize: 25,
-        fontFamily: 'Segoe UI Bold',
-        color: 'white',
-        width: 300,
-        bottom: 300,
-        left: 125
-    },
-    question1txt: {
-        fontSize: 18,
-        fontFamily: 'Segoe UI',
-        color: 'white',
-        width: 300,
-        bottom: 280,
-        left: 40
-    },
+
     questionbox : {
-        left: 30,
-        height:300,
-        borderRadius: 50,
-    },
-    question1box: {
-        
-        left: 30,
-        height:300,
-        borderRadius: 50,
-        bottom: 100
-        
+        left: widthPercentageToDP('5%'),
+        height: heightPercentageToDP('50%'),
+        width: widthPercentageToDP('90%'),
+        borderRadius: heightPercentageToDP('7%'),
+        backgroundColor: '#0E92DF'
     },
     
     
 
     questiontittxt: {
-        fontSize: 25,
+        fontSize: RFValue(30),
         fontFamily: 'Segoe UI Bold',
         color: 'white',
-        width: 300,
-        bottom: 370,
-        left: 125
+        width: widthPercentageToDP('90%'),
+        bottom: heightPercentageToDP('48%'),
+        left: widthPercentageToDP('28%')
     },
 
     questiontxt: {
-        fontSize: 18,
+        fontSize: RFValue(23),
         fontFamily: 'Segoe UI',
         color: 'white',
-        width: 300,
-        bottom: 340,
-        left: 40
+        width: widthPercentageToDP('70%'),
+        bottom: heightPercentageToDP('45%'),
+        left: widthPercentageToDP('10%')
     },
 
     button: {
-        padding: 2,
-        borderRadius: 50,
+        borderRadius: heightPercentageToDP('10%'),
         backgroundColor: '#0E92DF',
-        left: 70,
-        bottom: 150,
-        height: 60,
-        width: 250,
+        left: widthPercentageToDP('10%'),
+        bottom: heightPercentageToDP('20%'),
+        height: heightPercentageToDP('10%'),
+        width: widthPercentageToDP('80%'),
     },
     buttontxt : {
+        fontSize: RFValue(30),
+        fontFamily: 'Segoe UI Bold',
+        color: 'white',
+        left: widthPercentageToDP('27%'),
+        top: heightPercentageToDP('2%')
+        
+    },
+
+    checkboxtxtyes: {
         fontSize: 25,
         fontFamily: 'Segoe UI Bold',
         color: 'white',
-        width: 300,
-        left: 85,
-        top: 10
         
-    },
-    checkbox1txtyes: {
-        fontSize: 25,
-        fontFamily: 'Segoe UI',
-        color: 'white',
-        width: 300,
-        left: 90,
-        bottom: 340,
-        
-        
-    },
-    checkbox1txtno: {
-        fontSize: 25,
-        fontFamily: 'Segoe UI',
-        color: 'white',
-        width: 300,
-        left: 90,
-        bottom: 290,
-        
-        
-    },
-    CheckBox1yes: {
-        transform: [{ scaleX: 2.0 }, { scaleY: 2.0}],
-        bottom: 275,
-        left: 50,
-        
-    },
-    CheckBox1no: {
-        transform: [{ scaleX: 2.0 }, { scaleY: 2.0}],
-        bottom: 225,
-        left: 50,
-        
-    },
-    checkboxtxtyes: {
-        fontSize: 25,
-        fontFamily: 'Segoe UI',
-        color: 'white',
-        width: 300,
-        left: 90,
-        bottom: 390,
+        bottom: heightPercentageToDP('49%'),
+        left: widthPercentageToDP('25%'),
         
         
     },
     checkboxtxtno: {
         fontSize: 25,
-        fontFamily: 'Segoe UI',
+        fontFamily: 'Segoe UI Bold',
         color: 'white',
-        width: 300,
-        left: 90,
-        bottom: 340,
-        
+        bottom: heightPercentageToDP('43.5%'),
+        left: widthPercentageToDP('25%'),
         
     },
     CheckBoxyes: {
         transform: [{ scaleX: 2.0 }, { scaleY: 2.0}],
-        bottom: 325,
+        bottom: heightPercentageToDP('40%'),
         left: 50,
         
     },
     CheckBoxno: {
         transform: [{ scaleX: 2.0 }, { scaleY: 2.0}],
-        bottom: 275,
+        bottom: heightPercentageToDP('35%'),
         left: 50,
         
     }

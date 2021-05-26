@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {View, StyleSheet, Text, Image, Pressable, ScrollView, SafeAreaView} from 'react-native';
 import {setselectedCountry, Countries} from '../../libs/Places'
 import UseRegion from '../../Hooks/UseRegion';
+import {RFValue} from 'react-native-responsive-fontsize';
+import {widthPercentageToDP, heightPercentageToDP} from 'react-native-responsive-screen';
 
 
 
@@ -85,29 +87,29 @@ const styles = StyleSheet.create({
     
     container : {
         backgroundColor: 'white',
-        flex: 1,
-        paddingBottom: Platform.OS === 'android' ? 800 : 0
+        width: widthPercentageToDP('100%'),
+        height: heightPercentageToDP('100%')
     },
     
     Viewbut: {
-        left: 40,
-        top: 80,
-        padding: 30,
+        left: widthPercentageToDP('10%'),
+        height: heightPercentageToDP('12%'),
         backgroundColor: "#0EDF97",
-        width:300,
+        width: widthPercentageToDP('80%'),
         borderRadius: 50,
     },
    
     SpaceView: {
-        padding: 15,
+        height: heightPercentageToDP('3%')
         
        
     },
     
     txt: {
         fontFamily: 'Segoe UI Bold',
-        fontSize: 25,
-        
+        fontSize: RFValue(25),
+        left: widthPercentageToDP('5%'),
+        top: heightPercentageToDP('4%'),
         color: 'white'
     }
     

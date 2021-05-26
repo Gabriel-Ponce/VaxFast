@@ -1,6 +1,8 @@
 import React from 'react';
 import {StyleSheet, View, Text, Image, Pressable} from 'react-native';
-import auth, { firebase } from '@react-native-firebase/auth'
+import {RFValue} from 'react-native-responsive-fontsize';
+import {heightPercentageToDP, widthPercentageToDP} from 'react-native-responsive-screen';
+import auth, { firebase } from '@react-native-firebase/auth';
 
 const SurveyHome = ({navigation}) => {
 
@@ -8,8 +10,7 @@ const SurveyHome = ({navigation}) => {
 return(
 
 <View style = {styles.container}>
-    <Image source = {require('../../Assets/Poll_Rec.png')}
-    style = {styles.imgpos}/>
+    <View style = {styles.imgsty}/>
     <Text style = {styles.tittletxt}>
         Answer an effective poll to determine your Covid-19 chances
     </Text>
@@ -31,13 +32,19 @@ export default SurveyHome;
 
 const styles = StyleSheet.create({
 container:{
-
+    width: widthPercentageToDP('100%'),
+    height: heightPercentageToDP('100%'),
     backgroundColor: 'white'
 },
-imgpos: {
+imgsty: {
 
-    top: 75,
-    left: 40
+    top: heightPercentageToDP('5%'),
+    left: widthPercentageToDP('10%'),
+    width: widthPercentageToDP('80%'),
+    height: heightPercentageToDP('80%'),
+    backgroundColor: '#0E92DF',
+    borderRadius: heightPercentageToDP('5%')
+    
     
 },
 
@@ -46,20 +53,20 @@ imgpos: {
 tittletxt: {
     fontFamily: 'Segoe UI Bold',
     color: 'white',
-    fontSize: 25,
-    width: 300,
-    bottom: 450,
-    left: 62
+    fontSize:  RFValue(25),
+    width: widthPercentageToDP('75%'),
+    bottom: heightPercentageToDP('70%'),
+    left: widthPercentageToDP('15%')
 
    
 },
 
 txt: {
     fontFamily: 'Segoe UI',
-    fontWeight: '900',
-    fontSize: 25,
-    width: 300,
-    bottom: 400,
+   
+    fontSize: RFValue(25),
+    width: widthPercentageToDP('80%'),
+    bottom: heightPercentageToDP('65%'),
     left: 47,
     color: 'white'
 
@@ -67,21 +74,19 @@ txt: {
 
 buttxt: {
     fontFamily: 'Segoe UI Bold',
-    position: "absolute",
-    bottom: 10,
-    fontSize: 30,
-    left: 85
+    top: heightPercentageToDP('2%'),
+    fontSize: RFValue(30),
+    left: widthPercentageToDP('20%')
 },
 
 button: {
-    padding: 2,
-    borderRadius: 50,
+    
+    borderRadius: heightPercentageToDP('5%'),
     backgroundColor: 'white',
-    position: 'absolute',
-    left: 70,
-    bottom: 250,
-    height: 60,
-    width: 250,
+    left: widthPercentageToDP('20%'),
+    bottom: heightPercentageToDP('50%'),
+    height: heightPercentageToDP('9%'),
+    width: widthPercentageToDP('60%')
 }
 
 });

@@ -6,6 +6,9 @@ import auth from '@react-native-firebase/auth';
 import UseSDisplay from '../../Hooks/UseSDisplay'
 import { ActivityIndicator } from 'react-native-paper';
 import { white } from 'react-native-paper/lib/typescript/styles/colors';
+import {RFValue} from 'react-native-responsive-fontsize';
+import {widthPercentageToDP, heightPercentageToDP} from 'react-native-responsive-screen';
+
 const SurveyDisplay = () => {
     const [sdisplay, setSDisplay] = UseSDisplay();
     
@@ -87,56 +90,47 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
     color: '#FFFFFF',
-    height: '100%',
-    flex: 1,
     paddingBottom: Platform.OS === 'android' ? 500 : 0
     
   },
 
   space: {
-    padding: 10,
+    height: heightPercentageToDP('5%')
   },
 
-  but: {
-    left: 40,
-    top: 50,
-    padding: 30,
-    backgroundColor: "#8605B5",
-    width:300,
-    borderRadius: 50,
-    
-},
 
 butred: {
-  left: 40,
-  top: 50,
-  padding: 30,
+  left: widthPercentageToDP('10%'),
+  top: heightPercentageToDP('5%'),
+  height: heightPercentageToDP('12%'),
+  width: widthPercentageToDP('78%'),
+  borderRadius: heightPercentageToDP('10%'),
   backgroundColor: "#FF0000",
-  width:300,
-  borderRadius: 50,
 },
 
 butyellow: {
-  left: 40,
-  top: 50,
-  padding: 30,
+  left: widthPercentageToDP('10%'),
+  top: heightPercentageToDP('5%'),
+  height: heightPercentageToDP('12%'),
+  width: widthPercentageToDP('78%'),
+  borderRadius: heightPercentageToDP('10%'),
   backgroundColor: "#FFDF00",
-  width:300,
-  borderRadius: 50,
 },
 
 butgreen: {
-  left: 40,
-  top: 50,
-  padding: 30,
+  left: widthPercentageToDP('10%'),
+  top: heightPercentageToDP('5%'),
+  height: heightPercentageToDP('12%'),
+  width: widthPercentageToDP('78%'),
+  borderRadius: heightPercentageToDP('10%'),
   backgroundColor: "#18A80E",
-  width:300,
-  borderRadius: 50,
+
 },
 txt: {
   fontFamily: 'Segoe UI Bold',
-  fontSize: 25,
-  
+  fontSize: RFValue(25),
+  left: widthPercentageToDP('10%'),
+  top: heightPercentageToDP('4%'),
   color: 'white'
   },
   

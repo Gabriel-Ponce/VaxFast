@@ -2,6 +2,8 @@ import React from 'react';
 import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
 import {onGooglesignOut} from '../Social-Login/GoogleLogin'
 import auth from '@react-native-firebase/auth';
+import {RFValue} from 'react-native-responsive-fontsize';
+import {widthPercentageToDP, heightPercentageToDP} from 'react-native-responsive-screen'
 
 
 const Settingsmain = ({navigation}) => {
@@ -32,43 +34,43 @@ const styles = StyleSheet.create({
 
 container: {
     backgroundColor: 'white',
-    position: 'absolute',
-    width: 500,
-    height: 1000
+    width: widthPercentageToDP('100%'),
+    height: heightPercentageToDP('100%')
 },
 
 Signoutbut: {
-    left: 40,
-    top: 50,
-    padding: 30,
+    left: widthPercentageToDP('10%'),
+    top: heightPercentageToDP('10%'),
+    height: heightPercentageToDP('13%'),
     backgroundColor: "#8605B5",
-    width:300,
-    borderRadius: 50,
+    width: widthPercentageToDP('80%'),
+    borderRadius: heightPercentageToDP('10%'),
     
 },
 
 Signouttxt: {
 fontFamily: 'Segoe UI Bold',
-fontSize: 25,
-
+fontSize: RFValue(25),
+left: widthPercentageToDP('10%'),
+top: heightPercentageToDP('5%'),
 color: 'white'
 },
 
 but: {
-    left: 40,
-    top: 100,
-    padding: 30,
+    left: widthPercentageToDP('10%'),
+    top: heightPercentageToDP('20%'),
+    height: heightPercentageToDP('13%'),
     backgroundColor: "#8605B5",
-    width:300,
-    borderRadius: 50,  
+    width: widthPercentageToDP('80%'),
+    borderRadius: heightPercentageToDP('10%'),
 },
 but2: {
-    left: 40,
-    top: 150,
-    padding: 30,
+    left: widthPercentageToDP('10%'),
+    top: heightPercentageToDP('30%'),
+    height: heightPercentageToDP('13%'),
     backgroundColor: "#8605B5",
-    width:300,
-    borderRadius: 50,  
+    width: widthPercentageToDP('80%'),
+    borderRadius: heightPercentageToDP('10%'), 
 },
 
    

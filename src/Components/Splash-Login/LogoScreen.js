@@ -72,8 +72,7 @@ container: {
 },
 logo: {
     
-    //alignItems: 'center',
-    //justifyContent: 'center',
+    
     left: widthPercentageToDP('20%'),
     top: heightPercentageToDP('25%'),
     width: widthPercentageToDP('65%'),
