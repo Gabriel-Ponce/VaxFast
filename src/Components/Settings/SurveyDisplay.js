@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, StyleSheet, View, SafeAreaView, ScrollView} from 'react-native';
+import {Text, StyleSheet, View, SafeAreaView, ScrollView, Alert} from 'react-native';
 import firebase from '@react-native-firebase/app';
 import database from '@react-native-firebase/database'; 
 import auth from '@react-native-firebase/auth';
@@ -9,7 +9,7 @@ import { white } from 'react-native-paper/lib/typescript/styles/colors';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {widthPercentageToDP, heightPercentageToDP} from 'react-native-responsive-screen';
 
-const SurveyDisplay = () => {
+const SurveyDisplay = ({navigation}) => {
     const [sdisplay, setSDisplay] = UseSDisplay();
     
     
@@ -76,6 +76,10 @@ return(
 <SafeAreaView styles = {styles.container}>
   {sdisplay.loading?
   <ActivityIndicator/>
+  :
+  sdisplay.totalsurvs === null?
+  Alert.alert("Alert", "You need to answer at least one survey to check your results", [{text: "ok", onPress: () => {navigation.navigate('TabHandler')}}])
+            
   :
   <ScrollView> 
   

@@ -12,7 +12,9 @@ import Settingsmain from './Settings/Settingsmain';
 import SurveyDisplay from './Settings/SurveyDisplay';
 import VaccineMap from './VaccineMaps/VaccineMap';
 import VaccineMapSelect from './VaccineMaps/VaccineMapSelect';
-import VaccineCountrySelect from './VaccineMaps/VaccineCountrySelect'
+import VaccineCountrySelect from './VaccineMaps/VaccineCountrySelect';
+import NewsHome from './News/NewsHome';
+import News from './News/News'
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -21,7 +23,7 @@ const Tab = createMaterialBottomTabNavigator();
 const TabHandler = () => {
     return(
     <Tab.Navigator shifting = {true}>
-        <Tab.Screen name = "SurveyHome" component = {SurveyHome}  options = {{headerShown: false,  tabBarIcon: ()=> {
+        <Tab.Screen name = "Survey " component = {SurveyHome}  options = {{headerShown: false,  tabBarIcon: ()=> {
         return <Image
         style = {styles.img}
         source= {require('../Assets/Poll.png')}
@@ -30,13 +32,19 @@ const TabHandler = () => {
         }, 
         tabBarColor: '#0E92DF'}}/>
 
-        <Tab.Screen name = "VaccineMapHome" component = {VaccineMapHome}  options = {{headerShown: false,  tabBarIcon:() => {
+        <Tab.Screen name = "Vaccine Map" component = {VaccineMapHome}  options = {{headerShown: false,  tabBarIcon:() => {
             return <Image
             style = {styles.img2}
             source= {require('../Assets/VaxIco.png')}/>
         }, tabBarColor: '#0EDF97'}}/>
 
-        <Tab.Screen name = "Setting" component = {Settingsmain}  options = {{headerShown: false,  tabBarIcon:() => {
+        <Tab.Screen name = "News " component = {NewsHome}  options = {{headerShown: false,  tabBarIcon:() => {
+            return <Image
+            style = {styles.img2}
+            source= {require('../Assets/NewsIco.png')}/>
+        }, tabBarColor: '#FF0000'}}/>
+
+        <Tab.Screen name = "Settings" component = {Settingsmain}  options = {{headerShown: false,  tabBarIcon:() => {
             return <Image
             style = {styles.img2}
             source= {require('../Assets/SettingsIco.png')}/>
@@ -58,6 +66,7 @@ return(
         <Stack.Screen name = "VaccineMap" component = {VaccineMap}/>
         <Stack.Screen name = "VaccineCountrySelect" component = {VaccineCountrySelect}/>
         <Stack.Screen name = "VaccineMapSelect" component = {VaccineMapSelect}/>
+        <Stack.Screen name = "News" component = {News}/>
     </Stack.Navigator>
     
     

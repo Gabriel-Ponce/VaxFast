@@ -9,7 +9,6 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import {heightPercentageToDP, widthPercentageToDP} from 'react-native-responsive-screen';
 import { acc } from 'react-native-reanimated';
 
-var image = 'aa'
 
 
 

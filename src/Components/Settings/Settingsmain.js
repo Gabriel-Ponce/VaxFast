@@ -7,6 +7,9 @@ import {widthPercentageToDP, heightPercentageToDP} from 'react-native-responsive
 
 
 const Settingsmain = ({navigation}) => {
+    
+    
+    
     return(
     <View style = {styles.container}>
         <Pressable style = {styles.Signoutbut} onPress = {() => onGooglesignOut().then(() => navigation.navigate('Login'))}>
