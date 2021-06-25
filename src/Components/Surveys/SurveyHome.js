@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, Pressable} from 'react-native';
+import {StyleSheet, View, Text, Image, Pressable, TouchableOpacity} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {heightPercentageToDP, widthPercentageToDP} from 'react-native-responsive-screen';
 import auth, { firebase } from '@react-native-firebase/auth';
@@ -17,11 +17,11 @@ return(
     <Text style = {styles.txt}>
     This poll will help you determine if it's really necessary to get out and expose people to Covid-19 or if you are free of having the virus
     </Text>
-    <Pressable style = {styles.button} onPress = {() => navigation.navigate("Survey")} >
+    <TouchableOpacity style = {styles.button} onPress = {() => navigation.navigate("Survey")} >
         <Text style = {styles.buttxt}>
         Start
         </Text>
-    </Pressable>
+    </TouchableOpacity>
 </View>
 );
 }

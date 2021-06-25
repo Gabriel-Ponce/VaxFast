@@ -148,7 +148,7 @@ const getMessage = (Percentage) => {
         <Text style = {styles.txt}>
         {SurveyResulttxt[number]}    
         </Text>
-        <Pressable style = {eval(`styles.button${string}`)} onPress = {() => navigation.navigate('SurveyHome')}>
+        <Pressable style = {eval(`styles.button${string}`)} onPress = {() => navigation.navigate('TabHandler')}>
         <Text style = {styles.buttontxt}>
             Home
         </Text>

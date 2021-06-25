@@ -84,13 +84,11 @@ const onGoogleLogin = async() => {
 }
 
 export const onGooglesignOut = async () => {
-  try {
+  
     await GoogleSignin.revokeAccess();
     await GoogleSignin.signOut();
     await auth().signOut();
-  } catch (error) {
-    console.error(error);
-  }
+  
 };
 
 export default onGoogleLogin;
