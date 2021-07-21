@@ -51,9 +51,9 @@ imgsty: {
 
 
 tittletxt: {
-    fontFamily: 'Segoe UI Bold',
+    fontFamily: 'Roboto-Bold',
     color: 'white',
-    fontSize:  RFValue(25),
+    fontSize:  RFValue(30),
     width: widthPercentageToDP('75%'),
     bottom: heightPercentageToDP('70%'),
     left: widthPercentageToDP('15%')
@@ -62,9 +62,9 @@ tittletxt: {
 },
 
 txt: {
-    fontFamily: 'Segoe UI',
+    fontFamily: 'Roboto-Regular',
    
-    fontSize: RFValue(25),
+    fontSize: RFValue(20),
     width: widthPercentageToDP('80%'),
     bottom: heightPercentageToDP('65%'),
     left: 47,
@@ -73,8 +73,8 @@ txt: {
 },
 
 buttxt: {
-    fontFamily: 'Segoe UI Bold',
-    top: heightPercentageToDP('2%'),
+    fontFamily: 'Roboto-Bold',
+    top: heightPercentageToDP('1.5%'),
     fontSize: RFValue(30),
     left: widthPercentageToDP('20%')
 },

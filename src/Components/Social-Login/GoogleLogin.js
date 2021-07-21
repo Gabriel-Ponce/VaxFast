@@ -4,7 +4,8 @@ import firebase from '@react-native-firebase/app';
 import {GoogleSignin, statusCodes} from '@react-native-google-signin/google-signin';
 import {setProvider} from '../AuthManager'
 import { DebugInstructions } from 'react-native/Libraries/NewAppScreen';
-import database from '@react-native-firebase/database'
+import database from '@react-native-firebase/database';
+import {provider, setprovider} from '../../libs/libs'
 
 GoogleSignin.configure({
   scopes: ['email'], // what API you want to access on behalf of the user, default is email and profile
@@ -21,18 +22,19 @@ const onGoogleLogin = async() => {
     const googleCredential = auth.GoogleAuthProvider.credential(idToken.idToken);
     await auth().signInWithCredential(googleCredential);
     
+    setprovider("GOOGLE");
     
     var username;
   const user = firebase.auth().currentUser;
   if (user){
-    username = idToken.user.name
+    username = user.uid;
   }
 
     
   const path = "users/" + username;
   console.log(path);
     database().ref(path).update({
-      id: idToken.user.id,
+      name: idToken.user.name,
       
     });
     
@@ -87,7 +89,9 @@ export const onGooglesignOut = async () => {
   
     await GoogleSignin.revokeAccess();
     await GoogleSignin.signOut();
+    setprovider();
     await auth().signOut();
+    
   
 };
 

@@ -14,7 +14,9 @@ import VaccineMap from './VaccineMaps/VaccineMap';
 import VaccineMapSelect from './VaccineMaps/VaccineMapSelect';
 import VaccineCountrySelect from './VaccineMaps/VaccineCountrySelect';
 import NewsHome from './News/NewsHome';
-import News from './News/News'
+import News from './News/News';
+import VaccineMapExport from './VaccineMaps/VaccineMapExport';
+import Info from './Settings/Info';
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -67,6 +69,8 @@ return(
         <Stack.Screen name = "VaccineCountrySelect" component = {VaccineCountrySelect}/>
         <Stack.Screen name = "VaccineMapSelect" component = {VaccineMapSelect}/>
         <Stack.Screen name = "News" component = {News}/>
+        <Stack.Screen name = "Export" component = {VaccineMapExport}/>
+        <Stack.Screen name = "Info" component = {Info}/>
     </Stack.Navigator>
     
     

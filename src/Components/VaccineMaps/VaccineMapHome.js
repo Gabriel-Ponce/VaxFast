@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, Pressable} from 'react-native';
+import {StyleSheet, View, Text, Image, Pressable, TouchableOpacity} from 'react-native';
 import auth, { firebase } from '@react-native-firebase/auth'
 import {RFValue} from 'react-native-responsive-fontsize';
 import {widthPercentageToDP, heightPercentageToDP} from 'react-native-responsive-screen';
@@ -10,7 +10,7 @@ const VaccineMapHome = ({navigation}) => {
 return(
 
 <View style = {styles.container}>
-    <Image source = {require('../../Assets/Vax_Rec.png')}
+    <View
     style = {styles.imgsty}/>
     <Text style = {styles.tittletxt}>
         Check places were the vaccine is available 
@@ -18,11 +18,12 @@ return(
     <Text style = {styles.txt}>
     See our map to see were is the nearest vaccines and export the places to Google Maps
     </Text>
-    <Pressable style = {styles.button} onPress = {() => navigation.navigate('VaccineCountrySelect')}>
+    <TouchableOpacity style = {styles.button} onPress = {() => navigation.navigate('VaccineCountrySelect')}>
         <Text style = {styles.buttxt}>
         Check
         </Text>
-    </Pressable>
+    </TouchableOpacity>
+    
 </View>
 );
 }
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
         left: widthPercentageToDP('10%'),
         width: widthPercentageToDP('80%'),
         height: heightPercentageToDP('80%'),
-        backgroundColor: '#0E92DF',
+        backgroundColor: '#0EDF97',
         borderRadius: heightPercentageToDP('5%')
         
         
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     
     
     tittletxt: {
-        fontFamily: 'Segoe UI Bold',
+        fontFamily: 'Roboto-Bold',
         color: 'white',
         fontSize:  RFValue(25),
         width: widthPercentageToDP('75%'),
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
     },
     
     txt: {
-        fontFamily: 'Segoe UI',
+        fontFamily: 'Roboto-Regular',
        
         fontSize: RFValue(25),
         width: widthPercentageToDP('80%'),
@@ -75,10 +76,10 @@ const styles = StyleSheet.create({
     },
     
     buttxt: {
-        fontFamily: 'Segoe UI Bold',
-        top: heightPercentageToDP('2%'),
+        fontFamily: 'Roboto-Bold',
+        top: heightPercentageToDP('1.5%'),
         fontSize: RFValue(30),
-        left: widthPercentageToDP('20%')
+        left: widthPercentageToDP('18%')
     },
     
     button: {

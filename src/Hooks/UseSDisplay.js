@@ -21,7 +21,7 @@ const [state, setState] =  useState({
 const user = firebase.auth().currentUser;
     var username;
 if (user) {
-    username = user.displayName;
+    username = user.uid;
     
    } 
    const path = "users/" + username;

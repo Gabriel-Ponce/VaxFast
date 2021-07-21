@@ -1,5 +1,3 @@
-import {useState} from 'react';
-
 export const Countries = [
 "United States",
 "Mexico"
@@ -77,3 +75,44 @@ export const setselectedstate = (change) => {
 selectedstate = change
 
 }
+
+var selectedlink = "";
+export {selectedlink};
+
+export const setselectedlink = (link) => {
+
+    selectedlink = link;
+
+}
+
+var selectedcoordinates = {};
+
+export {selectedcoordinates};
+
+export const setselectedcoordinates = (coors) => {
+
+    selectedcoordinates = coors;
+    console.log(selectedcoordinates);
+
+}
+
+var selectedaddress = "";
+
+export {selectedaddress};
+
+export const setselectedaddress = (adr) => {
+    selectedaddress = adr;
+    console.log(selectedaddress);
+} 
+
+var provider = "GOOGLE";
+
+export {provider};
+
+export const setprovider = (prov = "") => {
+
+    provider = prov;
+    console.log(provider);
+
+}
+

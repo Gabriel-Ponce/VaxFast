@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
+import {View, Text, StyleSheet, Image, Pressable, TouchableOpacity} from 'react-native';
 import database from '@react-native-firebase/database';
 import firebase from '@react-native-firebase/app'
 import '@react-native-firebase/database';
@@ -39,7 +39,7 @@ var Percentage;
 var username;
 const user = firebase.auth().currentUser;
     if (user) {
-     username = user.displayName;
+     username = user.uid;
      console.log("user: " + username);
     } 
     const path = "users/" + username;
@@ -60,7 +60,7 @@ export const getVal = async() => {
     const user = firebase.auth().currentUser;
     var username;
     if (user) {
-     username = user.displayName;
+     username = user.uid;
      console.log("user: " + username);
     } 
     const path = "users/" + username;
@@ -78,17 +78,12 @@ const SurveyResult = ({navigation}) => {
 const [percentage, setpercentage] = useState(0);
 const [val, setval] = useState(0);
 const [message, setmessage] = useState(0);
-const [loading, setloading] = useState({
-    perloading: true,
-    valloading: true
-    
-
-})
+const [loading, setloading] = useState(true);
 var username;
 
 const user = firebase.auth().currentUser;
     if (user) {
-     username = user.displayName;
+     username = user.uid;
      console.log("user: " + username);
     } 
     const path = "users/" + username;
@@ -120,24 +115,28 @@ const user = firebase.auth().currentUser;
 const getMessage = (Percentage) => {
     var number = 0;
     var string = "";
-    switch (Percentage) {
-        case (Percentage >= 70):
+    console.log("PER: ", Percentage)
+        if (Percentage >= 70){
             number = 0;
             string = "red";
-            break;
-
-        case(Percentage >= 40):
+            console.log(string);
+            
+    }
+        else if (Percentage >= 40){
             number = 1;
             string = "yellow";
-            break;
+            console.log(string);
+            
+        }
 
-        default:
+        else {
             number = 2;
             string = "green";
-            break;
+            console.log(string);
+            
+        }
 
-
-    }
+    
     return (<View>
         
         <View style = {eval(`styles.${string}box`)} />
@@ -148,11 +147,11 @@ const getMessage = (Percentage) => {
         <Text style = {styles.txt}>
         {SurveyResulttxt[number]}    
         </Text>
-        <Pressable style = {eval(`styles.button${string}`)} onPress = {() => navigation.navigate('TabHandler')}>
+        <TouchableOpacity style = {eval(`styles.button${string}`)} onPress = {() => navigation.navigate('TabHandler')}>
         <Text style = {styles.buttontxt}>
             Home
         </Text>
-        </Pressable>
+        </TouchableOpacity>
 
     </View>)
 }
@@ -161,21 +160,10 @@ const getMessage = (Percentage) => {
 useEffect(async() => { 
      await getPercentage().then((result) => {
         setpercentage(result);
-        let loadingcopy = {...loading};
-        loadingcopy.perloading = false;
-  //copying loading val to update it later
-        setloading({
-            perloading: false,
-            valloading: loadingcopy.valloading
-        })
     });
     await getVal().then((result) => {
         setval(result);
-        let loadingcopy = {...loading}; //copying loading percentage to update it later
-        setloading({
-            perloading: loadingcopy.perloading,
-            valloading: false
-        })
+        setloading(false);
         
     });
     
@@ -186,22 +174,30 @@ useEffect(async() => {
     
 },[]);
 
-if (loading.valloading == false) {
+if (loading == false) {
 updatedbPercentage();
 }
     
     
     
     console.log(val , percentage);
-    console.log(loading.valloading, loading.perloading);
+    console.log(loading);
    
     
    return (
-       <View>
-           {
-            getMessage(percentage)
-           }
-       </View>
+    <>
+        {
+            loading ?
+            <ActivityIndicator/>
+            :
+            <View>
+           
+                {
+                    getMessage(percentage)
+                }
+            </View>
+        }   
+    </>
    )
 }
 
@@ -211,7 +207,7 @@ const styles = StyleSheet.create({
     buttonred: {
         height: heightPercentageToDP('10%'),
         borderRadius: heightPercentageToDP('10%'),
-        bottom: heightPercentageToDP('30%'),
+        bottom: heightPercentageToDP('45%'),
         width: widthPercentageToDP('80%'),
         left: widthPercentageToDP('10%'),
         backgroundColor: '#FF0000'
@@ -233,8 +229,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#18A80E'
     },
     buttontxt : {
-        fontSize: RFValue(25),
-        fontFamily: 'Segoe UI Bold',
+        fontSize: RFValue(20),
+        fontFamily: 'Roboto-Bold',
         color: 'white',
         left: widthPercentageToDP('30%'),
         top: heightPercentageToDP('3%')
@@ -254,7 +250,7 @@ const styles = StyleSheet.create({
     },
     prctxt: {
         fontSize: RFValue(40),
-        fontFamily: 'Segoe UI Bold',
+        fontFamily: 'Roboto-Bold',
         color: 'white',
         left: widthPercentageToDP('40%'),
         bottom: heightPercentageToDP('63%')
@@ -262,8 +258,8 @@ const styles = StyleSheet.create({
         
     },
     txt: {
-        fontSize:  RFValue(25),
-        fontFamily: 'Segoe UI',
+        fontSize:  RFValue(20),
+        fontFamily: 'Roboto-Regular',
         color: 'white',
         width: widthPercentageToDP('70%'),
         left: widthPercentageToDP('15%'),

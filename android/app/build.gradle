@@ -137,6 +137,16 @@ android {
         versionCode 1
         versionName "1.0"
     }
+     signingConfigs {
+        release {
+            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+                storeFile file(MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            }
+        }
+    }
     splits {
         abi {
             reset()
@@ -155,6 +165,8 @@ android {
     }
     buildTypes {
         debug {
+            
+            signingConfig signingConfigs.release
             signingConfig signingConfigs.debug
         }
         release {
@@ -189,6 +201,8 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+
+    implementation 'com.facebook.android:facebook-android-sdk:[8,9)'
 
     implementation project(':react-native-maps')
     

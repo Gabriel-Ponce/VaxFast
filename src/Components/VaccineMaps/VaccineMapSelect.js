@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Text, Image, Pressable, ScrollView} from 'react-native';
-import {setselectedstate, selectedstate} from '../../libs/Places'
+import {setselectedstate, selectedstate} from '../../libs/libs'
 import UseRegion from '../../Hooks/UseRegion';
 import { ActivityIndicator } from 'react-native-paper';
 import {RFValue} from 'react-native-responsive-fontsize';
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     },
     
     txt: {
-        fontFamily: 'Segoe UI Bold',
+        fontFamily: 'Roboto-Bold',
         fontSize: RFValue(25),
         left: widthPercentageToDP('5%'),
         top: heightPercentageToDP('4%'),

@@ -4,6 +4,7 @@ import UseNews from '../../Hooks/UseNews'
 import { ActivityIndicator } from 'react-native-paper';
 import {heightPercentageToDP, widthPercentageToDP} from 'react-native-responsive-screen';
 import {RFValue} from 'react-native-responsive-fontsize';
+import setLink from '../../libs/setLink';
 
 const News = () => {
 
@@ -11,11 +12,7 @@ const News = () => {
     
    console.log(news);
     
-   const setnewsLink = async(url) => {
-
-    await Linking.openURL(url);
-    console.log(typeof(url));
-   }
+   
 
 
     const getNews = () => {
@@ -34,7 +31,7 @@ const News = () => {
                 <Image style = {styles.imgstyle} source = {{uri: news.news.articles[i].urlToImage}}/>
             </View>
             <View style = {styles.space}/>
-            <TouchableOpacity style = {styles.button} onPress = {() => {setnewsLink(news.news.articles[i].url)}}>
+            <TouchableOpacity style = {styles.button} onPress = {() => {setLink(news.news.articles[i].url)}}>
                 <Text style = {styles.txt}>
                     Read More...
                 </Text>
@@ -89,14 +86,14 @@ const styles = StyleSheet.create({
         top: heightPercentageToDP('5%'),
         left: widthPercentageToDP('5%'),
         width: widthPercentageToDP('75%'),
-        fontFamily: 'Segoe UI Bold',
+        fontFamily: 'Roboto-Bold',
         fontSize: RFValue(18),
         color: '#FFFFFF'
     },
     desctxt: {
         top: heightPercentageToDP('7%'),
         left: widthPercentageToDP('3%'),
-        fontFamily: 'Segoe UI',
+        fontFamily: 'Roboto-Regular',
         fontSize: RFValue(15),
         color: '#FFFFFF'
 
@@ -122,7 +119,7 @@ const styles = StyleSheet.create({
     },
 
     txt: {
-        fontFamily: 'Segoe UI Bold',
+        fontFamily: 'Roboto-Bold',
         fontSize: RFValue(20),
         left: widthPercentageToDP('15%'),
         top: heightPercentageToDP('3%')

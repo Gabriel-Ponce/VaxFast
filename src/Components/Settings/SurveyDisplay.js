@@ -77,7 +77,7 @@ return(
   {sdisplay.loading?
   <ActivityIndicator/>
   :
-  sdisplay.totalsurvs === null?
+  sdisplay.totalsurvs == 0?
   Alert.alert("Alert", "You need to answer at least one survey to check your results", [{text: "ok", onPress: () => {navigation.navigate('TabHandler')}}])
             
   :
@@ -131,7 +131,7 @@ butgreen: {
 
 },
 txt: {
-  fontFamily: 'Segoe UI Bold',
+  fontFamily: 'Roboto-Bold',
   fontSize: RFValue(25),
   left: widthPercentageToDP('10%'),
   top: heightPercentageToDP('4%'),

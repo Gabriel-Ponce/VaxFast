@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, Pressable} from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {heightPercentageToDP, widthPercentageToDP} from 'react-native-responsive-screen';
 import auth, { firebase } from '@react-native-firebase/auth';
@@ -18,11 +18,11 @@ return(
     <Text style = {styles.txt}>
     Here you can see all the news about covid-19 from reliable sources 
     </Text>
-    <Pressable style = {styles.button} onPress = {() => navigation.navigate("News")} >
+    <TouchableOpacity style = {styles.button} onPress = {() => navigation.navigate("News")} >
         <Text style = {styles.buttxt}>
         Check
         </Text>
-    </Pressable>
+    </TouchableOpacity>
 </View>
 );
 }
@@ -52,7 +52,7 @@ imgsty: {
 
 
 tittletxt: {
-    fontFamily: 'Segoe UI Bold',
+    fontFamily: 'Roboto-Bold',
     color: 'white',
     fontSize:  RFValue(25),
     width: widthPercentageToDP('75%'),
@@ -63,7 +63,7 @@ tittletxt: {
 },
 
 txt: {
-    fontFamily: 'Segoe UI',
+    fontFamily: 'Roboto-Regular',
    
     fontSize: RFValue(25),
     width: widthPercentageToDP('80%'),
@@ -74,7 +74,7 @@ txt: {
 },
 
 buttxt: {
-    fontFamily: 'Segoe UI Bold',
+    fontFamily: 'Roboto-Bold',
     top: heightPercentageToDP('2%'),
     fontSize: RFValue(30),
     left: widthPercentageToDP('20%')

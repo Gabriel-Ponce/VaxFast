@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, Image, Pressable, Alert, View} from 'react-native';
+import {StyleSheet, Text, Image, Pressable, Alert, View, TouchableOpacity} from 'react-native';
 import CheckBox from '@react-native-community/checkbox'
 import database, { firebase } from '@react-native-firebase/database'
 import { ScrollView } from 'react-native-gesture-handler';
@@ -166,7 +166,7 @@ const Survey = ({navigation}) => {
     var username;
     const user = firebase.auth().currentUser;
     if (user){
-    username =  firebase.auth().currentUser.displayName;
+    username =  user.uid;
     }
 
     const path = 'users/' + username;
@@ -198,17 +198,17 @@ const Survey = ({navigation}) => {
     }
     
     if (sympthquestions >= 5) {
-        Percentage =  50;
+        Percentage =  90;
     }
     else if (sympthquestions >= 3) {
-        Percentage =  30;
+        Percentage =  40;
     }
 
     Percentage = Percentage + 10*(chronicquestions);
 
     Percentage = Percentage + 15*(workquestions)
 
-    if (Percentage > 100) {
+    if (Percentage > 95) {
         Percentage = 95;
     }
 
@@ -446,11 +446,11 @@ return(
         <Text style = {styles.checkboxtxtyes}>yes</Text> 
         <Text style = {styles.checkboxtxtno}>no</Text>
 
-        <Pressable onPress = {() => {checkAnswer()}} style = {styles.button} title = "Finish">
+        <TouchableOpacity onPress = {() => {checkAnswer()}} style = {styles.button} title = "Finish">
             <Text style = {styles.buttontxt}>
                 Finish
             </Text>
-        </Pressable>
+        </TouchableOpacity>
 
         </ScrollView>
 )
@@ -478,7 +478,7 @@ const styles = StyleSheet.create({
 
     questiontittxt: {
         fontSize: RFValue(30),
-        fontFamily: 'Segoe UI Bold',
+        fontFamily: 'Roboto-Bold',
         color: 'white',
         width: widthPercentageToDP('90%'),
         bottom: heightPercentageToDP('48%'),
@@ -487,7 +487,7 @@ const styles = StyleSheet.create({
 
     questiontxt: {
         fontSize: RFValue(23),
-        fontFamily: 'Segoe UI',
+        fontFamily: 'Roboto-Regular',
         color: 'white',
         width: widthPercentageToDP('70%'),
         bottom: heightPercentageToDP('45%'),
@@ -504,7 +504,7 @@ const styles = StyleSheet.create({
     },
     buttontxt : {
         fontSize: RFValue(30),
-        fontFamily: 'Segoe UI Bold',
+        fontFamily: 'Roboto-Bold',
         color: 'white',
         left: widthPercentageToDP('27%'),
         top: heightPercentageToDP('2%')
@@ -513,7 +513,7 @@ const styles = StyleSheet.create({
 
     checkboxtxtyes: {
         fontSize: 25,
-        fontFamily: 'Segoe UI Bold',
+        fontFamily: 'Roboto-Bold',
         color: 'white',
         
         bottom: heightPercentageToDP('49%'),
@@ -523,7 +523,7 @@ const styles = StyleSheet.create({
     },
     checkboxtxtno: {
         fontSize: 25,
-        fontFamily: 'Segoe UI Bold',
+        fontFamily: 'Roboto-Bold',
         color: 'white',
         bottom: heightPercentageToDP('43.5%'),
         left: widthPercentageToDP('25%'),

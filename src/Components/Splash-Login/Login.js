@@ -1,11 +1,12 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, Animated, Pressable} from 'react-native';
+import {StyleSheet, View, Text, Image, Animated, Pressable, TouchableOpacity } from 'react-native';
 import { create } from 'react-test-renderer';
 import { set } from 'react-native-reanimated';
 import auth from '@react-native-firebase/auth';
 import {widthPercentageToDP, heightPercentageToDP} from 'react-native-responsive-screen';
 import {RFValue} from 'react-native-responsive-fontsize';
 import onGoogleLogin from '../Social-Login/GoogleLogin';
+import onFacebookLogin from '../Social-Login/FacebookLogin';
 
 
 
@@ -17,18 +18,24 @@ return(
     <View style = {styles.container}>
         
         <Image style = {styles.logo} source = {require('../../Assets/Vax-Fast.png')} />
-        <Pressable style = {styles.loginbutton} title = "Login with Google" 
+        <TouchableOpacity style = {styles.googleloginbutton} 
         onPress = {() => onGoogleLogin().then(() => navigation.navigate('TabHandler')).catch(console.log('LoginError'))}>
             <Text style = {styles.text}>
-            Login with Google
+                Login with Google
             </Text>
-        </Pressable>
+        </TouchableOpacity>
+        <TouchableOpacity style = {styles.facebookloginbutton}
+        onPress = {() => onFacebookLogin().then(() => navigation.navigate('TabHandler')).catch(console.log('LoginError'))}>
+            <Text style = {styles.text}>
+                Login with Facebook
+            </Text>
+        </TouchableOpacity>
         
         
         
     </View>
-)
-};
+);
+}
 
 export default Login;
 
@@ -52,23 +59,36 @@ text: {
 
 },
 
-loginbutton: {
+googleloginbutton: {
     
     
     borderRadius: heightPercentageToDP('10%'),
-    backgroundColor: 'red',
+    backgroundColor: '#DB4437',
     height: heightPercentageToDP('10%'),
     width: widthPercentageToDP('80%'),
 
 
-    top: heightPercentageToDP('20%'),
-    left: 40,
-    right: 40
-    //left: -25*/
+    top: widthPercentageToDP('20%'),
+    left: widthPercentageToDP('10%'),
+    
+    },
+facebookloginbutton: {
+    
+    
+    borderRadius: heightPercentageToDP('10%'),
+    backgroundColor: '#3B5998',
+    height: heightPercentageToDP('10%'),
+    width: widthPercentageToDP('80%'),
+    top: heightPercentageToDP('15%'),
+    left: widthPercentageToDP('10%'),
+
+
+  
 },
 logo : {
-    width: 200,
-    height: 200,
+    width: widthPercentageToDP('37%'),
+    height: heightPercentageToDP('30%'),
+    left: widthPercentageToDP('5%')
     
 }
 });

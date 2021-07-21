@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Text, Image, Pressable, ScrollView, SafeAreaView} from 'react-native';
-import {setselectedCountry, Countries} from '../../libs/Places'
+import {setselectedCountry, Countries} from '../../libs/libs'
 import UseRegion from '../../Hooks/UseRegion';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {widthPercentageToDP, heightPercentageToDP} from 'react-native-responsive-screen';
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     },
     
     txt: {
-        fontFamily: 'Segoe UI Bold',
+        fontFamily: 'Roboto-Bold',
         fontSize: RFValue(25),
         left: widthPercentageToDP('5%'),
         top: heightPercentageToDP('4%'),

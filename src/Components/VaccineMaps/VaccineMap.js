@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, Image, Pressable, StyleSheet} from 'react-native';
-import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import {View, Text, Image, Pressable, StyleSheet, Linking, TouchableOpacity} from 'react-native';
+import MapView, {PROVIDER_GOOGLE, Marker, Callout, CalloutSubview} from 'react-native-maps';
 import UseMarker from '../../Hooks/UseMarker'
 import {ActivityIndicator} from 'react-native-paper';
-import {Places, setselectedstate, selectedstate, selectedCountry, Countries} from '../../libs/Places'
+import {Places, setselectedstate, selectedstate, selectedCountry, Countries, selectedcoordinates, setselectedcoordinates, selectedlink, setselectedlink, setselectedaddress} from '../../libs/libs';
+import {RFValue} from 'react-native-responsive-fontsize';
+import {heightPercentageToDP, widthPercentageToDP} from 'react-native-responsive-screen';
 
-const VaccineMap = () => {
+const VaccineMap = ({navigation}) => {
 
 const [marker, setMarker] = UseMarker(Countries[selectedCountry], Places[selectedstate]);
 const getCoordinates = () => {
@@ -48,7 +50,29 @@ const getMarkers = () => {
   let buffer = []
 
   for (let i = 0; i < coors.length; i++) {
-    buffer.push(<Marker key = {i} coordinate = {coors[i]} title = {`${marker.markers[i].properties.address} , ${marker.markers[i].properties.city}`}/>)
+    
+    
+    buffer.push(
+    <Marker key = {i} coordinate = {coors[i]} title = {`${marker.markers[i].properties.address} , ${marker.markers[i].properties.city}`}>
+      <Callout onPress = {() => {
+        setselectedcoordinates(coors[i]);
+        setselectedlink(marker.markers[i].properties.url);
+        setselectedaddress(marker.markers[i].properties.address);
+        navigation.navigate('Export');
+      }
+      }>
+        
+        <Text style = {styles.desctxt}>
+          {`${marker.markers[i].properties.address} , ${marker.markers[i].properties.city}`}
+        </Text>
+        <View style = {styles.box}>
+          <Text style = {styles.buttxt}>
+            Reserve Vaccine
+          </Text>
+        </View>
+        
+    </Callout>
+    </Marker>)
 
   }
   console.log(coors)
@@ -103,6 +127,31 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
+        },
+
+        box: {
+          backgroundColor: '#0EDF97',
+          borderRadius: heightPercentageToDP('10%'),
+          width: widthPercentageToDP('85%'),
+          height: heightPercentageToDP('10%')
+
+        },
+        
+        desctxt: {
+
+          fontWeight: 'bold',
+          
+
+        },
+        buttxt: {
+          fontFamily: 'Roboto-Bold',
+          color: '#FFFFFF',
+          fontSize: RFValue(20),
+          left: widthPercentageToDP('20%'),
+          top: heightPercentageToDP('3%'),
+
+
+
         }
         
 });

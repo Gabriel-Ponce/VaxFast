@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import {Countries, selectedCountry} from '../libs/Places'
+import {Countries, selectedCountry} from '../libs/libs'
 import {Mexico as mexico} from '../libs/Mexico';
 
 
